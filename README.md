@@ -19,7 +19,7 @@ Before you begin, ensure your project meets the following requirements:
 ### Swift Package Manager
 
 1. In Xcode, go to File > Add Packages
-2. Enter the package URL: `https://github.com/taboola/taboola-lite-ios-sdk`
+2. Enter the package URL: `https://github.com/taboola/taboola-ios-lite`
 3. Select the version you want to use
 4. Click Add Package
 
