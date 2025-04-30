@@ -20,7 +20,7 @@ Before you begin, ensure your project meets the following requirements:
 
 1. In Xcode, go to File > Add Packages
 2. Enter the package URL: `https://github.com/taboola/taboola-ios-lite`
-3. Select the version you want to use
+3. Select the version you want to use by setting the branch name
 4. Click Add Package
 
 ### Manual Installation
@@ -188,7 +188,32 @@ TBLSDK.shared.onScrollToTopTaboolaNews()
 
 ---
 
+## Advanced Configuration
+
+### Set Log Level
+
+To control the log verbosity of the SDK, you can set the log level as follows:
+
+```swift
+TBLSDK.shared.setLogLevel(TBLLogLevel.debug) // Options: .error, .warn, .info, .debug
+```
+
+### Update Reload Intervals (Testing Only)
+
+For testing purposes, you can configure the reload intervals for the WebView content:
+
+```
+TBLSDK.shared.updateReloadIntervals(
+    1, // Set WebView reload interval to 1 minutes
+    1  // Set timer repeat interval to 1 minutes
+)
+```
+
 ## Changelog
+
+### Version 1.0.1
+- Added updateReloadIntervals method for testing WebView reload behavior
+- Added setLogLevel method for controlling SDK log verbosity
 
 ### Version 1.0.0
 - Initial release of the Taboola Lite SDK
