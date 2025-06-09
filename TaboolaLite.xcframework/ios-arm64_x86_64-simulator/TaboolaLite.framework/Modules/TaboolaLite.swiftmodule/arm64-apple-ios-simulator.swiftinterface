@@ -32,6 +32,7 @@ public protocol OnTaboolaNewsListener : AnyObject {
   public func removeTaboolaNewsFromView()
   public func setLogLevel(_ logLevel: TaboolaLite.TBLLogLevel)
   public func updateReloadIntervals(_ reloadWebViewTimeMinute: Swift.Int? = nil, _ timerRepeatInterval: Swift.Int? = nil)
+  public func sendToKusto(type: Swift.String)
   @objc deinit
 }
 public enum TBLStatusCode : Swift.Int {
@@ -54,11 +55,15 @@ public class TBLUserData : Swift.Equatable {
   public static func == (lhs: TaboolaLite.TBLUserData, rhs: TaboolaLite.TBLUserData) -> Swift.Bool
   @objc deinit
 }
+@objc @_hasMissingDesignatedInitializers public class TBLKustoHandler : ObjectiveC.NSObject {
+  @objc deinit
+}
 public enum TBLLogLevel : Swift.Int {
   case debug
   case info
   case warn
   case error
+  case none
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {

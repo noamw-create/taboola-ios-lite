@@ -505,6 +505,32 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sendToKusto",
+            "printedName": "sendToKusto(type:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11TaboolaLite6TBLSDKC11sendToKusto4typeySS_tF",
+            "mangledName": "$s11TaboolaLite6TBLSDKC11sendToKusto4typeySS_tF",
+            "moduleName": "TaboolaLite",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -919,6 +945,13 @@
       },
       {
         "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "TaboolaLite"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -1240,6 +1273,131 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TaboolaLite"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TBLKustoHandler",
+        "printedName": "TBLKustoHandler",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TBLKustoHandler",
+                "printedName": "TaboolaLite.TBLKustoHandler",
+                "usr": "c:@M@TaboolaLite@objc(cs)TBLKustoHandler"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@TaboolaLite@objc(cs)TBLKustoHandler(im)init",
+            "mangledName": "$s11TaboolaLite15TBLKustoHandlerCACycfc",
+            "moduleName": "TaboolaLite",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@TaboolaLite@objc(cs)TBLKustoHandler",
+        "mangledName": "$s11TaboolaLite15TBLKustoHandlerC",
+        "moduleName": "TaboolaLite",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TaboolaLite"
+      },
+      {
+        "kind": "Import",
         "name": "os.log",
         "printedName": "os.log",
         "declKind": "Import",
@@ -1399,6 +1557,43 @@
             "moduleName": "TaboolaLite"
           },
           {
+            "kind": "Var",
+            "name": "none",
+            "printedName": "none",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TaboolaLite.TBLLogLevel.Type) -> TaboolaLite.TBLLogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TBLLogLevel",
+                    "printedName": "TaboolaLite.TBLLogLevel",
+                    "usr": "s:11TaboolaLite11TBLLogLevelO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TaboolaLite.TBLLogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TBLLogLevel",
+                        "printedName": "TaboolaLite.TBLLogLevel",
+                        "usr": "s:11TaboolaLite11TBLLogLevelO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:11TaboolaLite11TBLLogLevelO4noneyA2CmF",
+            "mangledName": "$s11TaboolaLite11TBLLogLevelO4noneyA2CmF",
+            "moduleName": "TaboolaLite"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(rawValue:)",
@@ -1541,6 +1736,13 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TaboolaLite"
+      },
+      {
+        "kind": "Import",
         "name": "Network",
         "printedName": "Network",
         "declKind": "Import",
@@ -1589,6 +1791,13 @@
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/TBLSDK.swift",
       "kind": "BooleanLiteral",
       "offset": 525,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/TBLSDK.swift",
+      "kind": "BooleanLiteral",
+      "offset": 565,
       "length": 5,
       "value": "false"
     },
@@ -1866,18 +2075,46 @@
       "value": "false"
     },
     {
-      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/taboola_webview\/TBLWebViewCreator.swift",
-      "kind": "Dictionary",
-      "offset": 188,
-      "length": 3,
-      "value": "[]"
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/taboola_webview\/TBLWebViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 560,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/taboola_webview\/TBLWebViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2455,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/taboola_webview\/TBLWebViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3694,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/taboola_webview\/TBLWebViewCreator.swift",
-      "kind": "BooleanLiteral",
-      "offset": 901,
-      "length": 5,
-      "value": "false"
+      "kind": "StringLiteral",
+      "offset": 102,
+      "length": 11,
+      "value": "\"canGoBack\""
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/taboola_webview\/TBLWebViewCreator.swift",
+      "kind": "StringLiteral",
+      "offset": 144,
+      "length": 14,
+      "value": "\"canGoForward\""
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/taboola_webview\/TBLWebViewCreator.swift",
+      "kind": "Dictionary",
+      "offset": 562,
+      "length": 3,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/user_data\/TBLInternalUserData.swift",
@@ -2043,9 +2280,37 @@
     {
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/user_data\/TBLUserDataCollector.swift",
       "kind": "StringLiteral",
-      "offset": 488,
+      "offset": 353,
       "length": 29,
       "value": "\"com.taboola.userdata.access\""
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLKustoHandler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 75,
+      "length": 4,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLKustoHandler.swift",
+      "kind": "IntegerLiteral",
+      "offset": 146,
+      "length": 12,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLKustoHandler.swift",
+      "kind": "Dictionary",
+      "offset": 308,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLKustoHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 356,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLLogger.swift",
@@ -2070,15 +2335,22 @@
     },
     {
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 131,
+      "length": 4,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLLogger.swift",
       "kind": "StringLiteral",
-      "offset": 485,
+      "offset": 537,
       "length": 14,
       "value": "\"TBLSDKLogger\""
     },
     {
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/utils\/TBLLogger.swift",
       "kind": "StringLiteral",
-      "offset": 624,
+      "offset": 734,
       "length": 21,
       "value": "\"yyyy-MM-dd HH:mm:ss\""
     },
