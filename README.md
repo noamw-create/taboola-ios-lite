@@ -211,6 +211,9 @@ TBLSDK.shared.updateReloadIntervals(
 
 ## Changelog
 
+### Version 1.0.2
+- Bug fix
+
 ### Version 1.0.1
 - Added updateReloadIntervals method for testing WebView reload behavior
 - Added setLogLevel method for controlling SDK log verbosity
