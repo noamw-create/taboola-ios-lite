@@ -212,7 +212,10 @@ TBLSDK.shared.updateReloadIntervals(
 ## Changelog
 
 ### Version 1.0.2
-- Bug fix
+- Send an error event if pull to refresh failes.
+- Handle click events in web pages.
+- Remove javascript bridge in non taboola pages.
+- Handle crash and error events.
 
 ### Version 1.0.1
 - Added updateReloadIntervals method for testing WebView reload behavior
