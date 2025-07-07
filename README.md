@@ -211,6 +211,9 @@ TBLSDK.shared.updateReloadIntervals(
 
 ## Changelog
 
+### Version 1.0.3
+- Remove handle crash and error events.
+
 ### Version 1.0.2
 - Send an error event if pull to refresh failes.
 - Handle click events in web pages.

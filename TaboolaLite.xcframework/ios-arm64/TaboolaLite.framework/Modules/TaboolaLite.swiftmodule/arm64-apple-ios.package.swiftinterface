@@ -55,9 +55,6 @@ public class TBLUserData : Swift.Equatable {
   public static func == (lhs: TaboolaLite.TBLUserData, rhs: TaboolaLite.TBLUserData) -> Swift.Bool
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers public class TBLKustoHandler : ObjectiveC.NSObject {
-  @objc deinit
-}
 public enum TBLLogLevel : Swift.Int {
   case debug
   case info
