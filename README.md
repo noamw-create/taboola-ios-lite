@@ -229,6 +229,7 @@ TBLSDK.shared.updateReloadIntervals(
 ### Version 1.0.4
 - New function `setCollectUserData` to enable/disable collecting user data.
 - Add privacy manifest.
+- Fix error event handling (like when the publisher id is incorrect)
 
 ### Version 1.0.3
 - Remove handle crash and error events.
