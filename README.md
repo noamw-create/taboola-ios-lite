@@ -105,6 +105,21 @@ This ensures that all SDK resources are properly released when the app is termin
 
 ---
 
+
+### Set User Data Collection Preference
+
+Use this method to enable or disable user data collection based on user consent.
+This method helps control whether the SDK collects user data, adhering to user privacy preferences.
+The function can be called **before or after** `TBLSDK.initialize`
+
+```kotlin
+TBLSDK.setCollectUserData(granted: Bool)
+```
+- **Parameters**:
+  - `granted`: A boolean indicating whether the user has granted permission (true) or not (false).
+
+---
+
 ---
 
 ## Event Handling
@@ -210,6 +225,9 @@ TBLSDK.shared.updateReloadIntervals(
 ```
 
 ## Changelog
+
+### Version 1.0.4
+- New function `setCollectUserData` to enable/disable collecting user data.
 
 ### Version 1.0.3
 - Remove handle crash and error events.

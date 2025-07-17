@@ -31,6 +31,7 @@ public protocol OnTaboolaNewsListener : AnyObject {
   public func removeOnTaboolaNewsListener()
   public func removeTaboolaNewsFromView()
   public func setLogLevel(_ logLevel: TaboolaLite.TBLLogLevel)
+  public func setCollectUserData(granted: Swift.Bool)
   public func updateReloadIntervals(_ reloadWebViewTimeMinute: Swift.Int? = nil, _ timerRepeatInterval: Swift.Int? = nil)
   public func sendToKusto(type: Swift.String)
   @objc deinit

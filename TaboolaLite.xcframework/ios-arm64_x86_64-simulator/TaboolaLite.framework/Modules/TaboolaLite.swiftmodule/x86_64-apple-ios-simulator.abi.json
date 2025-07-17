@@ -458,6 +458,32 @@
           },
           {
             "kind": "Function",
+            "name": "setCollectUserData",
+            "printedName": "setCollectUserData(granted:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:11TaboolaLite6TBLSDKC18setCollectUserData7grantedySb_tF",
+            "mangledName": "$s11TaboolaLite6TBLSDKC18setCollectUserData7grantedySb_tF",
+            "moduleName": "TaboolaLite",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "updateReloadIntervals",
             "printedName": "updateReloadIntervals(_:_:)",
             "children": [
@@ -1628,6 +1654,16 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
+        "moduleName": "TaboolaLite",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
         "moduleName": "TaboolaLite"
       },
       {
@@ -2130,6 +2166,13 @@
       "offset": 800,
       "length": 10,
       "value": "\"keyboard\""
+    },
+    {
+      "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/user_data\/TBLInternalUserDataConsts.swift",
+      "kind": "StringLiteral",
+      "offset": 840,
+      "length": 9,
+      "value": "\"opt_out\""
     },
     {
       "filePath": "\/Users\/tzufit.l\/git\/mobile-lite-sdk\/iOS\/TaboolaLite\/Sources\/user_data\/TBLUserDataCollector.swift",
