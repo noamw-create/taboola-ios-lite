@@ -119,7 +119,7 @@ Use this method to enable or disable user data collection based on user consent.
 This method helps control whether the SDK collects user data, adhering to user privacy preferences.
 The function can be called **before or after** `TBLSDK.initialize`
 
-```kotlin
+```swift
 TBLSDK.setCollectUserData(granted: Bool)
 ```
 - **Parameters**:
