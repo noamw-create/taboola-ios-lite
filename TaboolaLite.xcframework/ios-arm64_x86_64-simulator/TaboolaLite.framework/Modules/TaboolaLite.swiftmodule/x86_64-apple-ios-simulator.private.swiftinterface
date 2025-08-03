@@ -15,26 +15,29 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 import os.log
 import os
-public protocol OnTaboolaNewsListener : AnyObject {
-  func onTaboolaNewsFailed(statusCode: TaboolaLite.TBLStatusCode)
-  func onTaboolaNewsSharePressed(url: Swift.String)
+public protocol OnTBLListener : AnyObject {
+  func onTaboolaSharePressed(url: Swift.String)
+  func onTaboolaInitializationComplete(statusCode: TaboolaLite.TBLStatusCode)
+  func onTaboolaLoadComplete(statusCode: TaboolaLite.TBLStatusCode)
+}
+public protocol OnTBLNewsListener : AnyObject {
+  func onTaboolaNewsSetupComplete(statusCode: TaboolaLite.TBLStatusCode)
+  func onTaboolaNewsRefreshComplete(statusCode: TaboolaLite.TBLStatusCode)
 }
 @_hasMissingDesignatedInitializers public class TBLSDK {
   public static let shared: TaboolaLite.TBLSDK
-  public func initialize(publisherId: Swift.String, data: TaboolaLite.TBLUserData)
+  public func initialize(publisherId: Swift.String, data: TaboolaLite.TBLUserData, onTaboolaListener: (any TaboolaLite.OnTBLListener)? = nil)
   public func deinitialize()
-  public func addTaboolaNewsToView(_ view: UIKit.UIView)
+  public func setupTaboolaNews(view: UIKit.UIView, onTBLNewsListener: any TaboolaLite.OnTBLNewsListener)
   public func setUserData(_ userData: TaboolaLite.TBLUserData)
   public func onScrollToTopTaboolaNews()
+  public func onClickedTaboolaItem(url: Swift.String, viewController: UIKit.UIViewController)
   public func onPauseTaboolaNews()
   public func onResumeTaboolaNews()
-  public func setOnTaboolaNewsListener(_ listener: any TaboolaLite.OnTaboolaNewsListener)
-  public func removeOnTaboolaNewsListener()
   public func removeTaboolaNewsFromView()
   public func setLogLevel(_ logLevel: TaboolaLite.TBLLogLevel)
   public func setCollectUserData(granted: Swift.Bool)
   public func updateReloadIntervals(_ reloadWebViewTimeMinute: Swift.Int? = nil, _ timerRepeatInterval: Swift.Int? = nil)
-  public func sendToKusto(type: Swift.String)
   @objc deinit
 }
 public enum TBLStatusCode : Swift.Int {
@@ -42,6 +45,10 @@ public enum TBLStatusCode : Swift.Int {
   case badRequest
   case serviceUnavailable
   case publisherInvalid
+  case webViewNotFound
+  case sdkDisabled
+  case sdkNotInitialized
+  case invalidViewGroup
   public var message: Swift.String {
     get
   }

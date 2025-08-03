@@ -36,7 +36,8 @@ Before you begin, ensure your project meets the following requirements:
 
 ### 1. Initialize the SDK
 
-The `TBLSDK.initialize` method must be called before using any other SDK functionality. Initialize the SDK in your `AppDelegate`:
+The `TBLSDK.initialize` method must be called before using any other SDK functionality. Initialize the SDK in your `AppDelegate`.
+> **Important:** You must wait for `onTaboolaInitializationComplete` with status `SUCCESS` before calling `setupTaboolaNews`. Calling it earlier will result in `SDK_NOT_INITIALIZED` error.
 
 ```swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -48,20 +49,26 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
         "userInterestAndIntent"
     )
     
-    TBLSDK.shared.initialize(publisherId: publisherId, data: userData)
+    TBLSDK.shared.initialize(publisherId: publisherId, data: userData, onTaboolaListener: OnTBLListener())
     return true
 }
 ```
 
+* **Parameters**:
+
+  * `publisherId`: A valid Taboola PublisherId (e.g., `publisherId`).
+  * `userData`: An instance of `TBLUserData` containing user-specific data.
+  * `onTaboolaListener`: An implementation of `OnTBLListener` for lifecycle callbacks.
+
 ### 2. Add Taboola to a View
 
-Once the SDK is initialized, you can add Taboola content to any view:
+Once SDK is initialized (after receiving SUCCESS from `onTaboolaInitializationComplete`), add Taboola content using `TBLSDK.setupTaboolaNews`:
 
 ```swift
 class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        TBLSDK.shared.addTaboolaNewsToView(view)
+        TBLSDK.shared.setupTaboolaNews(view: view, onTBLNewsListener: OnTBLNewsListener())
     }
 }
 ```
@@ -122,59 +129,54 @@ TBLSDK.setCollectUserData(granted: Bool)
 
 ---
 
-## Event Handling
+## Listener Interfaces
 
-### Add Taboola Listener
+### Taboola Event Listeners
 
-Implement the `OnTaboolaNewsListener` protocol to handle Taboola events:
+#### OnTBLListener
+
+The `OnTBLListener` interface listens to global SDK events:
 
 ```swift
-class NewsViewController: UIViewController, OnTaboolaNewsListener {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        TBLSDK.shared.setOnTaboolaNewsListener(self)
-    }
-    
-    func onTaboolaNewsFailed(statusCode: TBLStatusCode) {
-        print("Taboola failed with status code: \(statusCode)")
-    }
-    
-    func onTaboolaNewsSharePressed(url: String) {
-        // Handle share action
-        let activityVC = UIActivityViewController(
-            activityItems: [url],
-            applicationActivities: nil
-        )
-        present(activityVC, animated: true)
-    }
+public protocol OnTBLListener: AnyObject {
+    func onTaboolaInitializationComplete(statusCode: TBLStatusCode)
+    func onTaboolaLoadComplete(statusCode: TBLStatusCode)
+    func onTaboolaSharePressed(url: String)
 }
 ```
 
-### Status Codes
+* **onTaboolaInitializationComplete**: Called when the SDK initialization finishes.
+* **onTaboolaLoadComplete**: Called when the creation of the Taboola WebView completes.
+* **onTaboolaSharePressed**: Triggered when a user presses the share button.
 
-The SDK uses the following status codes:
+#### OnTBLNewsListener
+
+The `OnTBLNewsListener` interface allows you to listen for news-fragment events from Taboola:
 
 ```swift
-public enum TBLStatusCode: Int {
-    case success = 200
-    case badRequest = 400
-    case serviceUnavailable = 503
-    case publisherInvalid = -1
+public protocol OnTBLNewsListener: AnyObject {
+    func onTaboolaNewsSetupComplete(statusCode: TBLStatusCode)
+    func onTaboolaNewsRefreshComplete(statusCode: TBLStatusCode)
 }
 ```
 
-Each status code has a corresponding message that can be accessed via the `message` property.
+* **onTaboolaNewsSetupComplete**: Called when the Taboola WebView is successfully added to the fragment.
+* **onTaboolaNewsRefreshComplete**: Called when the Taboola WebView finishes refreshing content.
 
+The `TBLStatusCode` enum includes the following statuses
+Each status also includes a `message` property that provides a user-friendly description, which can be used for logging or displaying error messages in the UI:
 
-### Remove Taboola Listener
-
-When you're done listening to events:
-
-```swift
-TBLSDK.shared.removeOnTaboolaNewsListener()
-```
+- SUCCESS (200): "Success"
+- BAD_REQUEST (400): "Bad Request - Please check your input."
+- SERVICE_UNAVAILABLE (503): "Service Unavailable - Try again later."
+- PUBLISHER_INVALID (-1): "Publisher Invalid - Please contact support."
+- WEB_VIEW_NOT_FOUND(-2): "WebView Not Found - Please check if you deinitialized the SDK."
+- SDK_DISABLED(-3): "SDK Disabled - SDK functionality has been disabled."
+- SDK_NOT_INITIALIZED(-4): "SDK Not Initialized - Please call initialize() first."
+- INVALID_VIEW_GROUP(-5): "Invalid View - View must be a ViewGroup and not null."
 
 ---
+
 
 ## Lifecycle Management
 
@@ -225,6 +227,11 @@ TBLSDK.shared.updateReloadIntervals(
 ```
 
 ## Changelog
+
+### Version 1.0.7
+- Added lifecycle-safe listener interfaces: `OnTBLListener`, `OnTBLNewsListener`
+- Expanded `TBLStatusCode` with full error message support
+- Added mandatory success-check requirement before calling `setupTaboolaNews`
 
 ### Version 1.0.4
 - New function `setCollectUserData` to enable/disable collecting user data.
