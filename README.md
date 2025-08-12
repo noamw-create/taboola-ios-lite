@@ -228,6 +228,12 @@ TBLSDK.shared.updateReloadIntervals(
 
 ## Changelog
 
+### Version 1.0.8
+- Enable deeplink in taboola webView
+- Fix wait for `onTaboolaInitializationComplete`
+- Remove collection of location
+- Fix security issue
+
 ### Version 1.0.7
 - Added lifecycle-safe listener interfaces: `OnTBLListener`, `OnTBLNewsListener`
 - Expanded `TBLStatusCode` with full error message support
